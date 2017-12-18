@@ -1,12 +1,3 @@
----
-title: "Description and Example"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## C5.0 Variable importance
 
 After scrutinizing the code, I believe that there's a bug in the original code for C5.0 variable importance. 
