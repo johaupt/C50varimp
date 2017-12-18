@@ -1,0 +1,34 @@
+---
+title: "Description and Example"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## C5.0 Variable importance
+
+After scrutinizing the code, I believe that there's a bug in the original code for C5.0 variable importance. 
+Since I would like to compare variable importance between boosted C5.0 and gradient boosting, I've implemented some code that calculates the mean decrease in entropy for single or boosted C5.0 trees from the R package {C50}.
+
+
+```{r}
+library("C50")
+source("C50_importance.R")
+# Number of trials
+n <- 5
+C5boosted <- C5.0(x = iris[, 1:4], y = iris$Species, trials = n) 
+# Plot importance using original function
+# Variable importance for sepal.width is 25...
+C5imp(C5boosted, pct = FALSE)
+# Plot each of the trees
+# ... but sepal.width is only used in one tree
+for(i in 0:(n-1)){
+  plot(C5boosted, trial = i)
+}
+
+# Use varimpC50 to calculate mean decrease in entropy by each variable
+varimpC50(C5boosted, standardize = TRUE)
+
+```
