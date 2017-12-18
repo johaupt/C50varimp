@@ -1,7 +1,7 @@
 ## C5.0 Variable importance
 
-After scrutinizing the code, I believe that there's a bug in the original code for C5.0 variable importance. 
-Since I would like to compare variable importance between boosted C5.0 and gradient boosting, I've implemented some code that calculates the mean decrease in entropy for single or boosted C5.0 trees from the R package {C50}.
+After scrutinizing the code, I believe that there's a bug in the original code for C5.0 variable importance (https://stats.stackexchange.com/questions/313910/variable-importance-for-c5-0-boosted-trees). 
+Since I would like to compare variable importance between boosted C5.0 and gradient boosting anyway, I've implemented some code that calculates the mean decrease in entropy for single or boosted C5.0 trees from the R package {C50}.
 
 
 ```{r}
